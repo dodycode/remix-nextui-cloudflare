@@ -7,6 +7,8 @@ import { getTheme, toggleTheme } from "~/lib/theme-switcher";
 const ThemeSwitcher = () => {
   const theme = getTheme();
 
+  if (typeof document === "undefined") return null;
+
   return (
     <Switch
       defaultSelected={theme === "light"}
