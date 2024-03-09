@@ -4,10 +4,14 @@ import { Navbar, NavbarBrand, NavbarContent, Switch } from "@nextui-org/react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { getTheme, toggleTheme } from "~/lib/theme-switcher";
 
+import { useHydrated } from "remix-utils/use-hydrated";
+
 const ThemeSwitcher = () => {
   const theme = getTheme();
 
-  if (typeof document === "undefined") return null;
+  const isHydrated = useHydrated();
+
+  if (!isHydrated) return <></>;
 
   return (
     <Switch
