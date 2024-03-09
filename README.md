@@ -12,6 +12,16 @@ npx create-remix@latest --template https://github.com/dodycode/remix-nextui-clou
 
 ![theme switcher](theme-switcher.png)
 
+## Typegen
+
+Generate types for your Cloudflare bindings in `wrangler.toml`:
+
+```sh
+npm run typegen
+```
+
+You will need to rerun typegen whenever you make changes to `wrangler.toml`.
+
 ## Development
 
 Run the Vite dev server:
@@ -20,7 +30,18 @@ Run the Vite dev server:
 npm run dev
 ```
 
+To run Wrangler:
+
+```sh
+npm run build
+npm run start
+```
+
 ## Deployment
+
+> [!WARNING]  
+> Cloudflare does _not_ use `wrangler.toml` to configure deployment bindings.
+> You **MUST** [configure deployment bindings manually in the Cloudflare dashboard][bindings].
 
 First, build your app for production:
 
@@ -28,28 +49,10 @@ First, build your app for production:
 npm run build
 ```
 
-Setup your environment:
+Then, deploy your app to Cloudflare Pages:
 
 ```sh
-NODE_ENV='production'
+npm run deploy
 ```
 
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build` and the server
-
-- `server.js`
-- `build/server`
-- `build/client`
-
-Take a look at the provided Dockerfile for further details on how to configure a production environment.
+[bindings]: https://developers.cloudflare.com/pages/functions/bindings/
