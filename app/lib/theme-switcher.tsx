@@ -18,31 +18,8 @@ export function ThemeSwitcherSafeHTML({
       ? "light"
       : document.documentElement.getAttribute("data-theme") || "light";
 
-  const [theme, setTheme] = useState<Theme>(dataTheme as Theme);
-
-  //listen changes for data-theme attribute in html tag
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === "data-theme") {
-          const target = mutation.target as HTMLElement;
-          setTheme(target.getAttribute("data-theme") as Theme);
-        }
-      });
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["data-theme"],
-    });
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
-    <html {...props} lang={lang} data-theme={dataTheme} className={theme}>
+    <html {...props} lang={lang} data-theme={dataTheme}>
       {children}
     </html>
   );
