@@ -17,7 +17,8 @@ export default function Index() {
         Welcome to Remix Vite Next UI!
       </h1>
       <p className="text-center mt-4">
-        This is a new Remix app using Vite and Next UI.
+        This is a new Remix app using Vite and Next UI. Please look at the
+        README file for more information.
       </p>
     </main>
   );
