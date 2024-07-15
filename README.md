@@ -12,6 +12,23 @@ npx create-remix@latest --template https://github.com/dodycode/remix-nextui-clou
 
 ![theme switcher](theme-switcher.png)
 
+# Hooks
+
+This template comes with a few hooks to help you get started.
+
+# API Wrapper
+
+This template has a built in API wrapper that you can use to fetch data from your API in your loader functions or actions.
+
+```js
+import apiClient from "~/utils/api";
+
+export const loader = async ({ request }) => {
+  const data = await apiClient.get("/api/data");
+  return json(data);
+};
+```
+
 ## Typegen
 
 Generate types for your Cloudflare bindings in `wrangler.toml`:

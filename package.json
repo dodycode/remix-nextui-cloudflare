@@ -1,23 +1,25 @@
 {
   "name": "remix-nextui-cloudflare",
+  "version": "0.1.0",
   "private": true,
   "sideEffects": false,
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
-    "deploy": "wrangler pages deploy ./build/client",
+    "deploy": "npm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "wrangler pages dev ./build/client",
+    "start": "npm run build && wrangler pages dev ./build/client",
     "typecheck": "tsc",
     "typegen": "wrangler types"
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
     "@radix-ui/react-icons": "^1.3.0",
-    "@remix-run/cloudflare": "^2.8.1",
-    "@remix-run/cloudflare-pages": "^2.8.1",
-    "@remix-run/react": "^2.8.1",
+    "@remix-run/cloudflare": "2.10.2",
+    "@remix-run/cloudflare-pages": "2.10.2",
+    "@remix-run/react": "2.10.2",
+    "axios": "^1.7.2",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
     "isbot": "^4.1.0",
@@ -29,7 +31,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230518.0",
-    "@remix-run/dev": "^2.8.1",
+    "@remix-run/dev": "2.10.2",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
@@ -46,7 +48,7 @@
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.32.0"
+    "wrangler": "^3.64.0"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -10,7 +10,8 @@ import {
 
 import { NextUIProvider } from "@nextui-org/react";
 
-import "./tailwind.css";
+import "./root.css";
+
 import Header from "./components/header";
 
 import {
