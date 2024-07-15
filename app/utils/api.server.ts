@@ -62,7 +62,6 @@ const httpRequest: HttpRequest = async (method, url, request = {}, context) => {
     //@ts-ignore
     if (error.response.status === 401) {
       removeAuthToken();
-      window.location.href = "/auth/login";
     }
     return Promise.reject(error);
   }
